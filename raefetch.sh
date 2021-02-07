@@ -19,7 +19,9 @@ get_os() {
   else
     distro="$(grep -i 'PRETTY_NAME=' /etc/*-release | cut -d '"' -f2)"
   fi
-  echo -e "$distro"
+  if [ "${os_check_passed}" ]; then
+    echo -e "$distro"
+  fi
 }
 
 # Echo user and hostname string
@@ -228,6 +230,7 @@ raefetch() {
     get_os
   fi
 
+  os_check_passed=true
   shopt -s nocasematch
   case $distro in
   "Debian"*) # Debian
@@ -328,6 +331,7 @@ main() {
       ;;
     "--logo")
       if [ -n "$2" ]; then
+        os_check_passed=true
         distro="$2"
       else
         get_os;
