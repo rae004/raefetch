@@ -188,7 +188,10 @@ get_uptime() {
 # Display RAEFETCH usage information. For option --help
 get_usage() {
   whiptail --title "RAEFETCH" --msgbox "
-  Usage: RAEFETCH --help
+  Usage: raefetch <OPTION>
+    --help    (Display this page)
+    --version (Show current version number)
+    --logo <OS-NAME> (Show fetch with different OS logo)
 
   RAEFETCH is a simple system information tool for Linux. RAEFETCH shows not a whole lot:
 
@@ -197,13 +200,13 @@ get_usage() {
   KERNEL
   MODEL
   CPU
-  RAM (Used vs Total)
+  RAM (Total vs Used)
   SHELL (Loaded shells Path & version)
   PACKAGES
   UPTIME
 
-  Compatible OS's:
-  Debian, Other :)
+  OS Logos available for:
+  Debian, Ubuntu, Pop Os, Raspbian, Other :)
   For bugs report, email rae004dev@gmail.com
 
   Copyright (c) 2021 - 2022 Rae <https://github.com/rae004>
