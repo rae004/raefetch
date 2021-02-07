@@ -227,6 +227,7 @@ raefetch() {
     get_os
   fi
 
+  shopt -s nocasematch
   case $distro in
   "Debian"*) # Debian
     echo -e
