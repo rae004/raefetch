@@ -38,13 +38,14 @@ get_modal() {
 
 # Echo CPU details
 get_cpu() {
-  echo -e "$(grep -i 'model name' /proc/cpuinfo | head -1 | cut -f5- -d' ') @ $(nproc) cores"
+  echo -e "$(grep -i 'model name' /proc/cpuinfo | head -1 | cut -f5- -d ' ') @ $(nproc) cores"
 }
 
-# Get Available Ram
-# Get Ram used
-# Subtract available by amount used
-# Echo and convert to MiB
+# Get Available Ram.
+# Get Ram Total Ram.
+# Subtract Total from Available to get Ram Used.
+# Echo and convert to MiB.
+#todo convert Ram Usage to GB
 get_ram() {
   used=$(grep -i MemAvailable /proc/meminfo | awk '{print $2}');
   total=$(grep -i MemTotal /proc/meminfo | awk '{print $2}');
@@ -56,7 +57,7 @@ get_shell() {
   echo "$SHELL" "$($SHELL --version | grep -i 'version' | head -1 | cut -f4- -d ' ')";
 }
 
-#todo get packasges from multiple package managers.
+#todo get packages from multiple package managers.
 get_packages() {
   # Detect apk packages installed.
   if [ -x "$(command -v apk)" ]; then
@@ -153,7 +154,7 @@ get_packages() {
 
 # Convert uptime from seconds into days, hours, and minutes.
 # Append days, hours, and min if they're equal to zero.
-# Print 'dys', 'hrs', and 'mins' if they're more than two.
+# Print 'dys', 'hrs', and 'minutes' if they're more than two.
 get_uptime() {
   IFS=. read -r sec _ </proc/uptime;
 
@@ -176,7 +177,7 @@ get_uptime() {
   IFS="";
 }
 
-# Display RAEFETCH usage information.
+# Display RAEFETCH usage information. For option --help
 usage() {
   whiptail --title "RAEFETCH" --msgbox "
   Usage: RAEFETCH --help
