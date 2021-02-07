@@ -221,8 +221,11 @@ get_version() {
 
 #Fetch the details
 raefetch() {
-  # set distro var
-  get_os
+  # If distro var is set, it was passed with --logo option lets us it.
+  # Otherwise get os from host system.
+  if [ -z ${distro+x}  ]; then
+    get_os
+  fi
 
   case $distro in
   "Debian"*) # Debian
@@ -304,6 +307,14 @@ main() {
       ;;
     "--help")
       get_usage
+      ;;
+    "--logo")
+      if [ -n "$2" ]; then
+        distro="$2"
+      else
+        get_os;
+      fi
+      raefetch
       ;;
     *)
       printf "Bad Option passed\n"
