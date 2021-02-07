@@ -224,14 +224,14 @@ raefetch() {
   *) # Others
     echo -e
     echo -e "${bb}             USER/HOST ${r}$(get_user)"
-    echo -e "${bb}      ___    OS         ${r}$distro"
+    echo -e "${bb}      ___    OS        ${r}$distro"
     echo -e "${bb}     (.. |   KERNEL    ${r}$(get_kernel)"
-    echo -e "${bb}     (<> |   MODEL  ${r}$(get_modal)"
-    echo -e "${bb}    / __  \\  CPU    ${r}$(get_cpu)"
-    echo -e "${bb}   ( /  \\ /| RAM    ${r}$(get_ram)"
-    echo -e "${bb}  _/\\ __)/_) SHELL  ${r}$(get_shell)"
-    echo -e "${bb}  \\|/-___\\|/ PKGS   ${r}$(get_packages)"
-    echo -e "${bb}             UPTIME ${r}$(get_uptime)
+    echo -e "${bb}     (<> |   MODEL     ${r}$(get_modal)"
+    echo -e "${bb}    / __  \\  CPU       ${r}$(get_cpu)"
+    echo -e "${bb}   ( /  \\ /| RAM       ${r}$(get_ram)"
+    echo -e "${bb}  _/\\ __)/_) SHELL     ${r}$(get_shell)"
+    echo -e "${bb}  \\|/-___\\|/ PKGS      ${r}$(get_packages)"
+    echo -e "${bb}             UPTIME    ${r}$(get_uptime)
     "
     ;;
   esac
