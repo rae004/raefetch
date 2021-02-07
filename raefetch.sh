@@ -171,7 +171,6 @@ get_uptime() {
   hour=$((sec / 60 / 60 % 24));
   min=$((sec / 60 % 60));
 
-#todo make switch case
   if [ "${day}" == 0 ]; then
     uptime="${hour}h ${min}m";
   elif [ "${hour}" == 0 ]; then
@@ -236,17 +235,29 @@ raefetch() {
     echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)
     "
     ;;
+  "Ubuntu"*) # Ubuntu
+    echo -e "${bb}               USER/HOST  ${r}${bw}$(get_user)"
+    echo -e "${bb}           _   OS         ${r}${bw}$distro"
+    echo -e "${bb}       ---(_)  KERNEL     ${r}${bw}$(get_kernel)"
+    echo -e "${bb}   _/  ---  \\  MODEL      ${r}${bw}$(get_modal)"
+    echo -e "${bb}  (_) |   |    CPU        ${r}${bw}$(get_cpu)"
+    echo -e "${bb}    \\  --- _/  RAM        ${r}${bw}$(get_ram)"
+    echo -e "${bb}       ---(_)  SHELL      ${r}${bw}$(get_shell)"
+    echo -e "${bb}               PKGS       ${r}${bw}$(get_packages)"
+    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)
+    "
+    ;;
   *) # Others
     echo -e
-    echo -e "${bb}             USER/HOST ${r}$(get_user)"
-    echo -e "${bb}      ___    OS        ${r}$distro"
-    echo -e "${bb}     (.. |   KERNEL    ${r}$(get_kernel)"
-    echo -e "${bb}     (<> |   MODEL     ${r}$(get_modal)"
-    echo -e "${bb}    / __  \\  CPU       ${r}$(get_cpu)"
-    echo -e "${bb}   ( /  \\ /| RAM       ${r}$(get_ram)"
-    echo -e "${bb}  _/\\ __)/_) SHELL     ${r}$(get_shell)"
-    echo -e "${bb}  \\|/-___\\|/ PKGS      ${r}$(get_packages)"
-    echo -e "${bb}             UPTIME    ${r}$(get_uptime)
+    echo -e "${bb}               USER/HOST ${r}$(get_user)"
+    echo -e "${bb}      ___      OS        ${r}$distro"
+    echo -e "${bb}     (.. |     KERNEL    ${r}$(get_kernel)"
+    echo -e "${bb}     (<> |     MODEL     ${r}$(get_modal)"
+    echo -e "${bb}    / __  \\    CPU       ${r}$(get_cpu)"
+    echo -e "${bb}   ( /  \\ /|   RAM       ${r}$(get_ram)"
+    echo -e "${bb}  _/\\ __)/_)   SHELL     ${r}$(get_shell)"
+    echo -e "${bb}  \\|/-___\\|/   PKGS      ${r}$(get_packages)"
+    echo -e "${bb}               UPTIME    ${r}$(get_uptime)
     "
     ;;
   esac
