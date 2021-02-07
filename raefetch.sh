@@ -19,6 +19,7 @@ get_os() {
   else
     distro="$(grep -i 'PRETTY_NAME=' /etc/*-release | cut -d '"' -f2)"
   fi
+  echo -e "$distro"
 }
 
 # Echo user and hostname string
@@ -232,7 +233,7 @@ raefetch() {
   "Debian"*) # Debian
     echo -e
     echo -e "${bb}               USER/HOST  ${r}${bw}$(get_user)"
-    echo -e "${bb}     ,---._    OS         ${r}${bw}$distro"
+    echo -e "${bb}     ,---._    OS         ${r}${bw}$(get_os)"
     echo -e "${bb}   /\\\`  __ \\\\   KERNEL     ${r}${bw}$(get_kernel)"
     echo -e "${bb}  |   /    |   MODEL      ${r}${bw}$(get_modal)"
     echo -e "${bb}  |   \\\`.__.   CPU        ${r}${bw}$(get_cpu)"
@@ -245,7 +246,7 @@ raefetch() {
   "Ubuntu"*) # Ubuntu
     echo -e
     echo -e "${bb}               USER/HOST  ${r}${bw}$(get_user)"
-    echo -e "${bb}           _   OS         ${r}${bw}$distro"
+    echo -e "${bb}           _   OS         ${r}${bw}$(get_os)"
     echo -e "${bb}       ---(_)  KERNEL     ${r}${bw}$(get_kernel)"
     echo -e "${bb}   _/  ---  \\  MODEL      ${r}${bw}$(get_modal)"
     echo -e "${bb}  (_) |   |    CPU        ${r}${bw}$(get_cpu)"
@@ -258,7 +259,7 @@ raefetch() {
   "Raspbian"*) # Raspbian
     echo -e
     echo -e "${bb}               USER/HOST  ${r}${bw}$(get_user)"
-    echo -e "${bb}    __  __     OS         ${r}${bw}$distro"
+    echo -e "${bb}    __  __     OS         ${r}${bw}$(get_os)"
     echo -e "${bb}   (_\\)(/_)    KERNEL     ${r}${bw}$(get_kernel)"
     echo -e "${bb}   (_(__)_)    MODEL      ${r}${bw}$(get_modal)"
     echo -e "${bb}  (_(_)(_)_)   CPU        ${r}${bw}$(get_cpu)"
@@ -271,7 +272,7 @@ raefetch() {
   "Pop"*) # Pop
     echo -e
     echo -e "${bb}                  USER/HOST  ${r}${bw}$(get_user)"
-    echo -e "${bb} ______           OS         ${r}${bw}$distro"
+    echo -e "${bb} ______           OS         ${r}${bw}$(get_os)"
     echo -e "${bb} \\   _ \\     _    KERNEL     ${r}${bw}$(get_kernel)"
     echo -e "${bb}  \\ \\ \\ \\   | |   MODEL      ${r}${bw}$(get_modal)"
     echo -e "${bb}   \\ \\_\\ \\  | |   CPU        ${r}${bw}$(get_cpu)"
@@ -284,7 +285,7 @@ raefetch() {
   "Arch"*) # Arch
     echo -e
     echo -e "${bb}                  USER/HOST  ${r}${bw}$(get_user)"
-    echo -e "${bb}        /\\        OS         ${r}${bw}$distro"
+    echo -e "${bb}        /\\        OS         ${r}${bw}$(get_os)"
     echo -e "${bb}       /  \\       KERNEL     ${r}${bw}$(get_kernel)"
     echo -e "${bb}      /    \\      MODEL      ${r}${bw}$(get_modal)"
     echo -e "${bb}     /  __  \\     CPU        ${r}${bw}$(get_cpu)"
@@ -297,7 +298,7 @@ raefetch() {
   *) # Others
     echo -e
     echo -e "${bb}               USER/HOST ${r}${bw}$(get_user)"
-    echo -e "${bb}      ___      OS        ${r}${bw}$distro"
+    echo -e "${bb}      ___      OS        ${r}${bw}$(get_os)"
     echo -e "${bb}     (.. |     KERNEL    ${r}${bw}$(get_kernel)"
     echo -e "${bb}     (<> |     MODEL     ${r}${bw}$(get_modal)"
     echo -e "${bb}    / __  \\    CPU       ${r}${bw}$(get_cpu)"
