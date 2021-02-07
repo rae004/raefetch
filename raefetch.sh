@@ -67,96 +67,95 @@ get_shell() {
   echo "$SHELL" "$($SHELL --version | grep -i 'version' | head -1 | cut -f4- -d ' ')";
 }
 
-#todo get packages from multiple package managers.
 get_packages() {
   # Detect apk packages installed.
   if [ -x "$(command -v apk)" ]; then
     pkgs="$(apk list --installed | wc -l)";
-    pkgs+=" (apk) ";
+    pkgs+="(apk) ";
   fi
 
   # Detect apt packages installed.
   if [ -x "$(command -v apt)" ]; then
     pkgs="$(dpkg-query -f '${binary:Package}\n' -W | wc -l)";
-    pkgs+=" (apt) ";
+    pkgs+="(apt) ";
   fi
 
   # Detect dnf packages installed.
   if [ -x "$(command -v dnf)" ]; then
     pkgs="$(dnf list installed | wc -l)";
-    pkgs+=" (dnf) ";
+    pkgs+="(dnf) ";
   fi
 
   # Detect emerge packages installed.
   if [ -x "$(command -v emerge)" ]; then
     pkgs="$(qlist -I | wc -l)";
-    pkgs+=" (emerge) ";
+    pkgs+="(emerge) ";
   fi
 
   # Detect kiss packages installed.
   if [ -x "$(command -v kiss)" ]; then
     pkgs="$(kiss list | wc -l)";
-    pkgs+=" (kiss) ";
+    pkgs+="(kiss) ";
   fi
 
   # Detect snap packages installed.
   if [ -x "$(command -v nix)" ]; then
     pkgs="$(nix-store -q --requisites /run/current-system/sw | wc -l)";
-    pkgs+=" (nix) ";
+    pkgs+="(nix) ";
   fi
 
   # Detect opkg packages installed.
   if [ -x "$(command -v opkg)" ]; then
     pkgs="$(opkg list-installed | wc -l)";
-    pkgs+=" (opkg) ";
+    pkgs+="(opkg) ";
   fi
 
   # Detect pacman packages installed.
   if [ -x "$(command -v pacman)" ]; then
     pkgs="$(pacman -Q | wc -l)";
-    pkgs+=" (pacman) ";
+    pkgs+="(pacman) ";
   fi
 
   # Detect rpm packages installed.
   if [ -x "$(command -v rpm)" ]; then
     pkgs="$(rpm -qa --last | wc -l)";
-    pkgs+=" (rpm) ";
+    pkgs+="(rpm) ";
   fi
 
   # Detect xbps packages installed.
   if [ -x "$(command -v xbps)" ]; then
     pkgs="$(xbps-query -l | wc -l)";
-    pkgs+=" (xbps) ";
+    pkgs+="(xbps) ";
   fi
 
   # Detect yay packages installed.
   if [ -x "$(command -v yay)" ]; then
     pkgs="$(yay -Q | wc -l)";
-    pkgs+=" (yay) ";
+    pkgs+="(yay) ";
   fi
 
   # Detect yum packages installed.
   if [ -x "$(command -v yum)" ]; then
     pkgs="$(yum list installed | wc -l)";
-    pkgs+=" (yum) ";
+    pkgs+="(yum) ";
   fi
 
   # Detect zypper packages installed.
   if [ -x "$(command -v zypper)" ]; then
     pkgs="$(zypper se | wc -l)";
-    pkgs+=" (zypper) ";
+    pkgs+="(zypper) ";
   fi
 
   # Detect flatpak packages installed.
   if [ -x "$(command -v flatpak)" ]; then
-    pkgs+=" $(flatpak list | wc -l)";
-    pkgs+=" (flatpak) ";
+    pkgs+="$(flatpak list | wc -l)";
+    pkgs+="(flatpak) ";
   fi
 
   # Detect snap packages installed.
   if [ -x "$(command -v snap)" ]; then
-    pkgs+=" $(snap list | wc -l)";
-    pkgs+=" (snap) ";
+    pkgs+="$(snap list | wc -l)";
+    pkgs+="(snap) ";
   fi
 
   echo -e "$pkgs"packages;
