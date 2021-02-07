@@ -19,8 +19,6 @@ get_os() {
   else
     distro="$(grep -i 'PRETTY_NAME=' /etc/*-release | cut -d '"' -f2)"
   fi
-  #todo remove
-  distro="Raspbian";
 }
 
 # Echo user and hostname string
@@ -259,6 +257,18 @@ raefetch() {
     echo -e "${bb}     (__)      SHELL      ${r}${bw}$(get_shell)"
     echo -e "${bb}               PKGS       ${r}${bw}$(get_packages)"
     echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)
+    "
+    ;;
+  "Pop"*) # Pop
+    echo -e "${bb}                  USER/HOST  ${r}${bw}$(get_user)"
+    echo -e "${bb} ______           OS         ${r}${bw}$distro"
+    echo -e "${bb} \\   _ \\     _    KERNEL     ${r}${bw}$(get_kernel)"
+    echo -e "${bb}  \\ \\ \\ \\   | |   MODEL      ${r}${bw}$(get_modal)"
+    echo -e "${bb}   \\ \\_\\ \\  | |   CPU        ${r}${bw}$(get_cpu)"
+    echo -e "${bb}    \\  ___\\ |_|   RAM        ${r}${bw}$(get_ram)"
+    echo -e "${bb}     \\ \\     _    SHELL      ${r}${bw}$(get_shell)"
+    echo -e "${bb}    __\\_\\___(_)_  PKGS       ${r}${bw}$(get_packages)"
+    echo -e "${bb}   (____________) UPTIME     ${r}${bw}$(get_uptime)
     "
     ;;
   *) # Others
