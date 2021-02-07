@@ -242,6 +242,7 @@ raefetch() {
     "
     ;;
   "Ubuntu"*) # Ubuntu
+    echo -e
     echo -e "${bb}               USER/HOST  ${r}${bw}$(get_user)"
     echo -e "${bb}           _   OS         ${r}${bw}$distro"
     echo -e "${bb}       ---(_)  KERNEL     ${r}${bw}$(get_kernel)"
@@ -254,6 +255,7 @@ raefetch() {
     "
     ;;
   "Raspbian"*) # Raspbian
+    echo -e
     echo -e "${bb}               USER/HOST  ${r}${bw}$(get_user)"
     echo -e "${bb}    __  __     OS         ${r}${bw}$distro"
     echo -e "${bb}   (_\\)(/_)    KERNEL     ${r}${bw}$(get_kernel)"
@@ -266,6 +268,7 @@ raefetch() {
     "
     ;;
   "Pop"*) # Pop
+    echo -e
     echo -e "${bb}                  USER/HOST  ${r}${bw}$(get_user)"
     echo -e "${bb} ______           OS         ${r}${bw}$distro"
     echo -e "${bb} \\   _ \\     _    KERNEL     ${r}${bw}$(get_kernel)"
@@ -317,7 +320,7 @@ main() {
       raefetch
       ;;
     *)
-      printf "Bad Option passed\n"
+      echo -e "\n Bad Option passed =(\n"
       ;;
     esac
     exit
