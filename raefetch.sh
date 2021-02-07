@@ -41,16 +41,26 @@ get_cpu() {
   echo -e "$(grep -i 'model name' /proc/cpuinfo | head -1 | cut -f5- -d ' ') @ $(nproc) cores"
 }
 
-# Get Available Ram.
-# Get Ram Total Ram.
-# Subtract Total from Available to get Ram Used.
-# Echo and convert to MiB.
-#todo convert Ram Usage to GB
+# Get Available Ram in kb.
+# Get Total Ram in kb.
+# Subtract Total in kb from Available in kb to get Ram Used in kb.
+# Convert values to MiB & GB.
+# Use package bc to convert GB division to float value, ie: 3.37/GB.
 get_ram() {
-  used=$(grep -i MemAvailable /proc/meminfo | awk '{print $2}');
-  total=$(grep -i MemTotal /proc/meminfo | awk '{print $2}');
-  used=$((total - used));
-  echo -e "Used: $((used /= 1024))/MiB  Total: $((total /= 1024))/MiB";
+  divider=1024;
+  #Total ram values
+  available_kb=$(grep -i MemAvailable /proc/meminfo | awk '{print $2}');
+  total_kb=$(grep -i MemTotal /proc/meminfo | awk '{print $2}');
+  total_mb=$(( total_kb / divider ));
+  # Get float value
+  total_gb=$(echo "scale=2; $total_mb / $divider;" | bc);
+  ## Used ram values
+  used_kb=$(( total_kb - available_kb ));
+  used_mb=$(( used_kb / divider ));
+  # Get float value
+  used_gb=$(echo "scale=2; $used_mb / $divider;" | bc);
+
+  echo -e "Total: $total_gb/GB > Used: $used_gb/GB";
 }
 
 get_shell() {
