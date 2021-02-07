@@ -188,7 +188,7 @@ get_uptime() {
 }
 
 # Display RAEFETCH usage information. For option --help
-usage() {
+get_usage() {
   whiptail --title "RAEFETCH" --msgbox "
   Usage: RAEFETCH --help
 
@@ -211,6 +211,11 @@ usage() {
   Copyright (c) 2021 - 2022 Rae <https://github.com/rae004>
 
   This programme is provided under the GPL-3.0 License. See LICENSE for more details." 28 100
+}
+
+# Display RAEFETCH version information. For option --version
+get_version() {
+  whiptail --title "RAEFETCH" --msgbox "RAEFETCH version 0.0.1" 10 50;
 }
 
 #Fetch the details
@@ -258,10 +263,10 @@ main() {
   while [[ $# -gt 0 ]]; do
     case $1 in
     "--version")
-      whiptail --title "RAEFETCH" --msgbox "RAEFETCH version 0.0.1" 10 50
+      get_version
       ;;
     "--help")
-      usage
+      get_usage
       ;;
     *)
       printf "Bad Option passed\n"
@@ -271,4 +276,5 @@ main() {
   done
 }
 
+# todo add functionality for short hand options
 main "$@"
