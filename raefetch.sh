@@ -281,6 +281,19 @@ raefetch() {
     echo -e "${bb}   (____________) UPTIME     ${r}${bw}$(get_uptime)
     "
     ;;
+  "Arch"*) # Arch
+    echo -e
+    echo -e "${bb}                  USER/HOST  ${r}${bw}$(get_user)"
+    echo -e "${bb}        /\\        OS         ${r}${bw}$distro"
+    echo -e "${bb}       /  \\       KERNEL     ${r}${bw}$(get_kernel)"
+    echo -e "${bb}      /    \\      MODEL      ${r}${bw}$(get_modal)"
+    echo -e "${bb}     /  __  \\     CPU        ${r}${bw}$(get_cpu)"
+    echo -e "${bb}    /  (  )  \\    RAM        ${r}${bw}$(get_ram)"
+    echo -e "${bb}   / __|  |__ \\   SHELL      ${r}${bw}$(get_shell)"
+    echo -e "${bb}  /.\\\`      \\\`.\\  PKGS       ${r}${bw}$(get_packages)"
+    echo -e "${bb}                  UPTIME     ${r}${bw}$(get_uptime)
+    "
+    ;;
   *) # Others
     echo -e
     echo -e "${bb}               USER/HOST ${r}${bw}$(get_user)"
