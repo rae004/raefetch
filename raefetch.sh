@@ -56,6 +56,7 @@ get_shell() {
   echo "$SHELL" "$($SHELL --version | grep -i 'version' | head -1 | cut -f4- -d ' ')";
 }
 
+#todo get packasges from multiple package managers.
 get_packages() {
   # Detect apk packages installed.
   if [ -x "$(command -v apk)" ]; then
@@ -160,6 +161,7 @@ get_uptime() {
   hour=$((sec / 60 / 60 % 24));
   min=$((sec / 60 % 60));
 
+#todo make switch case
   if [ "${day}" == 0 ]; then
     uptime="${hour}h ${min}m";
   elif [ "${hour}" == 0 ]; then
@@ -191,6 +193,8 @@ usage() {
   PACKAGES
   UPTIME
 
+  Compatible OS's:
+  Debian, Other :)
   For bugs report, email rae004dev@gmail.com
 
   Copyright (c) 2021 - 2022 Rae <https://github.com/rae004>
