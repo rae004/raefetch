@@ -24,6 +24,13 @@ get_os() {
   fi
 }
 
+get_colors() {
+  color_2=(0 1 5 6 19 2 3)
+  color_1=(8 9 12 14 18 10 11)
+  top_color=$(for i in "${color_1[@]}"; do echo -en "\e[48;5;${i}m     \e[0m"; done)
+  bottom_color=$(for i in "${color_2[@]}"; do echo -en "\e[48;5;${i}m     \e[0m"; done)
+}
+
 # Echo user and hostname string
 get_user() {
   echo -e "$(whoami)@$(hostname)"
@@ -231,6 +238,7 @@ raefetch() {
   fi
 
   os_check_passed=true
+  get_colors
   shopt -s nocasematch
   case $distro in
   "Debian"*) # Debian
@@ -243,7 +251,10 @@ raefetch() {
     echo -e "${bb}   \\           RAM        ${r}${bw}$(get_ram)"
     echo -e "${bb}    \\\`-,_      SHELL      ${r}${bw}$(get_shell)"
     echo -e "${bb}               PKGS       ${r}${bw}$(get_packages)"
-    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)
+    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)"
+    echo -e ""
+    echo -e "               ${top_color}"
+    echo -e "               ${bottom_color}
     "
     ;;
   "Ubuntu"*) # Ubuntu
@@ -256,7 +267,10 @@ raefetch() {
     echo -e "${bb}    \\  --- _/  RAM        ${r}${bw}$(get_ram)"
     echo -e "${bb}       ---(_)  SHELL      ${r}${bw}$(get_shell)"
     echo -e "${bb}               PKGS       ${r}${bw}$(get_packages)"
-    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)
+    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)"
+    echo -e ""
+    echo -e "               ${top_color}"
+    echo -e "               ${bottom_color}
     "
     ;;
   "Raspbian"*) # Raspbian
@@ -269,7 +283,10 @@ raefetch() {
     echo -e "${bb}   (_(__)_)    RAM        ${r}${bw}$(get_ram)"
     echo -e "${bb}     (__)      SHELL      ${r}${bw}$(get_shell)"
     echo -e "${bb}               PKGS       ${r}${bw}$(get_packages)"
-    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)
+    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)"
+    echo -e ""
+    echo -e "               ${top_color}"
+    echo -e "               ${bottom_color}
     "
     ;;
   "Pop"*) # Pop
@@ -282,7 +299,10 @@ raefetch() {
     echo -e "${bb}    \\  ___\\ |_|   RAM        ${r}${bw}$(get_ram)"
     echo -e "${bb}     \\ \\     _    SHELL      ${r}${bw}$(get_shell)"
     echo -e "${bb}    __\\_\\___(_)_  PKGS       ${r}${bw}$(get_packages)"
-    echo -e "${bb}   (____________) UPTIME     ${r}${bw}$(get_uptime)
+    echo -e "${bb}   (____________) UPTIME     ${r}${bw}$(get_uptime)"
+    echo -e ""
+    echo -e "                  ${top_color}"
+    echo -e "                  ${bottom_color}
     "
     ;;
   "Arch"*) # Arch
@@ -295,7 +315,10 @@ raefetch() {
     echo -e "${bb}    /  (  )  \\    RAM        ${r}${bw}$(get_ram)"
     echo -e "${bb}   / __|  |__ \\   SHELL      ${r}${bw}$(get_shell)"
     echo -e "${bb}  /.\\\`      \\\`.\\  PKGS       ${r}${bw}$(get_packages)"
-    echo -e "${bb}                  UPTIME     ${r}${bw}$(get_uptime)
+    echo -e "${bb}                  UPTIME     ${r}${bw}$(get_uptime)"
+    echo -e ""
+    echo -e "                  ${top_color}"
+    echo -e "                  ${bottom_color}
     "
     ;;
   *) # Others
@@ -308,7 +331,10 @@ raefetch() {
     echo -e "${bb}   ( /  \\ /|   RAM       ${r}${bw}$(get_ram)"
     echo -e "${bb}  _/\\ __)/_)   SHELL     ${r}${bw}$(get_shell)"
     echo -e "${bb}  \\|/-___\\|/   PKGS      ${r}${bw}$(get_packages)"
-    echo -e "${bb}               UPTIME    ${r}${bw}$(get_uptime)
+    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)"
+    echo -e ""
+    echo -e "               ${top_color}"
+    echo -e "               ${bottom_color}
     "
     ;;
   esac
