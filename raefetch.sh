@@ -216,7 +216,7 @@ get_usage() {
   UPTIME
 
   OS Logos available for:
-  Debian, Ubuntu, Pop Os, Raspbian, Other :)
+  Debian, Ubuntu, Pop Os, Raspbian, Arch, Other :)
   For bugs report, email rae004dev@gmail.com
 
   Copyright (c) 2021 - 2022 Rae <https://github.com/rae004>
