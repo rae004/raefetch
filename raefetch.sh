@@ -47,8 +47,9 @@ get_modal() {
 }
 
 # Echo CPU details
+#TODO Update to get cpu name Ghz and cores for all types
 get_cpu() {
-  echo -e "$(grep -i 'model name' /proc/cpuinfo | head -1 | cut -f5- -d ' ') @ $(nproc) cores"
+  echo -e "$(grep -i 'model name' /proc/cpuinfo | head -1 | cut -f3- -d ' ') @ $(nproc) cores"
 }
 
 # Get Available Ram in kb.
