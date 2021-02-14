@@ -239,6 +239,7 @@ get_version() {
 raefetch() {
   # If distro var is set, it was passed with --logo option lets us it.
   # Otherwise get os from host system.
+  # only unset considered as null, why var+x instead of var:+x
   if [ -z ${distro+x}  ]; then
     get_os
   fi
