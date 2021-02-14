@@ -56,7 +56,8 @@ get_cpu() {
 # Get Total Ram in kb.
 # Subtract Total in kb from Available in kb to get Ram Used in kb.
 # Convert values to MiB & GB.
-# Use package bc to convert GB division to float value, ie: 3.37/GB.
+# Logic to use MB if < 1GB.
+# Use package bc to convert GB division to float value, ie: 3.37/GB or 3450.88/MB
 get_ram() {
   divider=1024;
   #Total ram values
