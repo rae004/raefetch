@@ -339,7 +339,7 @@ raefetch() {
     echo -e "${bb}   ( /  \\ /|   RAM       ${r}${bw}$(get_ram)"
     echo -e "${bb}  _/\\ __)/_)   SHELL     ${r}${bw}$(get_shell)"
     echo -e "${bb}  \\|/-___\\|/   PKGS      ${r}${bw}$(get_packages)"
-    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)"
+    echo -e "${bb}               UPTIME    ${r}${bw}$(get_uptime)"
     echo -e ""
     echo -e "               ${top_color}"
     echo -e "               ${bottom_color}
