@@ -331,15 +331,15 @@ raefetch() {
     ;;
   *) # Others
     echo -e
-    echo -e "${bb}               USER/HOST ${r}${bw}$(get_user)"
-    echo -e "${bb}      ___      OS        ${r}${bw}$(get_os)"
-    echo -e "${bb}     (.. |     KERNEL    ${r}${bw}$(get_kernel)"
-    echo -e "${bb}     (<> |     MODEL     ${r}${bw}$(get_modal)"
-    echo -e "${bb}    / __  \\    CPU       ${r}${bw}$(get_cpu)"
-    echo -e "${bb}   ( /  \\ /|   RAM       ${r}${bw}$(get_ram)"
-    echo -e "${bb}  _/\\ __)/_)   SHELL     ${r}${bw}$(get_shell)"
-    echo -e "${bb}  \\|/-___\\|/   PKGS      ${r}${bw}$(get_packages)"
-    echo -e "${bb}               UPTIME    ${r}${bw}$(get_uptime)"
+    echo -e "${bb}               USER/HOST  ${r}${bw}$(get_user)"
+    echo -e "${bb}      ___      OS         ${r}${bw}$(get_os)"
+    echo -e "${bb}     (.. |     KERNEL     ${r}${bw}$(get_kernel)"
+    echo -e "${bb}     (<> |     MODEL      ${r}${bw}$(get_modal)"
+    echo -e "${bb}    / __  \\    CPU        ${r}${bw}$(get_cpu)"
+    echo -e "${bb}   ( /  \\ /|   RAM        ${r}${bw}$(get_ram)"
+    echo -e "${bb}  _/\\ __)/_)   SHELL      ${r}${bw}$(get_shell)"
+    echo -e "${bb}  \\|/-___\\|/   PKGS       ${r}${bw}$(get_packages)"
+    echo -e "${bb}               UPTIME     ${r}${bw}$(get_uptime)"
     echo -e ""
     echo -e "               ${top_color}"
     echo -e "               ${bottom_color}
