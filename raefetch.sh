@@ -67,11 +67,15 @@ get_ram() {
   total_gb=$(echo "scale=2; $total_mb / $divider;" | bc);
   ## Used ram values
   used_kb=$(( total_kb - available_kb ));
-  used_mb=$(( used_kb / divider ));
+  used_mb=$(echo "scale=2; $used_kb / $divider;" | bc );
   # Get float value
   used_gb=$(echo "scale=2; $used_mb / $divider;" | bc);
 
-  echo -e "Total: $total_gb/GB > Used: $used_gb/GB";
+  if [ "$total_mb" -gt "$divider" ]; then
+      echo -e "Total: $total_gb/GB > Used: $used_gb/GB";
+  else
+      echo -e "Total: $total_gb/GB > Used: $used_mb/MB";
+  fi
 }
 
 get_shell() {
