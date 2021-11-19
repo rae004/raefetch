@@ -4,6 +4,7 @@ all:
 
 .PHONY: install
 install:
+	@apt install bc
 	@cp -v raefetch.sh /usr/bin/raefetch
 	@chmod 755 $(DESTDIR)$(PREFIX)/bin/raefetch
 
